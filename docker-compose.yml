@@ -21,6 +21,11 @@ services:
         container_name: rfc-mysql
         ports:
             - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laracast
+            MYSQL_USER: mohammad
+            MYSQL_PASSWORD: secret
         volumes:
             - ./mysql:/var/lib/mysql
         networks:
@@ -32,6 +37,8 @@ services:
             - 800:80
         depends_on:
             - mysql
+        environment:
+            PMA_HOST: mysql
         networks:
             - backend
     nginx:

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('channel_id');
             $table->foreign('channel_id')->references('id')->on('channels')->onDelete('cascade');
-            $table->foreignId('answer_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('best_answer_id');
             $table->string('title');
             $table->text('content');
             $table->string('slug');
